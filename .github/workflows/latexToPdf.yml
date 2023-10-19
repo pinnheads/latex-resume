@@ -33,6 +33,6 @@ jobs:
           cd "$GITHUB_WORKSPACE/website"
           git add public/resume.pdf
           git commit -m "[github actions] updated resume"
-          git push
+          git push -u origin resume
         env:
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
