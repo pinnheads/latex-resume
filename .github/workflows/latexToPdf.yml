@@ -28,9 +28,9 @@ jobs:
           git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
           git clone --depth=1 git@github.com:pinnheads/Personal-Portfolio-2.0.git "$GITHUB_WORKSPACE/website"
-          git checkout -b resume
-          cp -f resume.pdf "$GITHUB_WORKSPACE/website/public/resume.pdf"
           cd "$GITHUB_WORKSPACE/website"
+          git checkout -b resume
+          cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/public/resume.pdf"
           git add public/resume.pdf
           git commit -m "[github actions] updated resume"
           git push -u origin resume
