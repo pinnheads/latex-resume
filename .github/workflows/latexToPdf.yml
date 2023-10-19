@@ -10,8 +10,29 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: resume.tex
-      - name: Upload PDF file
-        uses: actions/upload-artifact@v3
-        with:
-          name: PDF
-          path: resume.pdf
+      - name: Verify PDF File
+        run: |
+          ls
+          file resume.pdf | grep -q 'PDF'
+      - name: Upload
+        run: |
+          # configure git
+          git config --global user.name "Utsav Deep"
+          git config --global user.email "utsavdeep01@gmail.com"
+
+          # setup ssh
+          mkdir ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+
+          git clone --depth=1 git@github.com:pinnheads/Personal-Portfolio-2.0.git "$GITHUB_WORKSPACE/website"
+          git checkout -b resume
+          cp -f resume.pdf "$GITHUB_WORKSPACE/website/public/resume.pdf"
+          cd "$GITHUB_WORKSPACE/website"
+          git add public/resume.pdf
+          git commit -m "[github actions] updated resume"
+          git push origin resume
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
