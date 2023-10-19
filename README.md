@@ -1,1 +1,2 @@
+[![Build LaTeX document](https://github.com/pinnheads/latex-resume/actions/workflows/latexToPdf.yml/badge.svg)](https://github.com/pinnheads/latex-resume/actions/workflows/latexToPdf.yml)
 # Latex Resume to PDF w/ Actions

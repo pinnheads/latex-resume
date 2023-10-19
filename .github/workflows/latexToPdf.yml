@@ -14,6 +14,11 @@ jobs:
         run: |
           ls
           file resume.pdf | grep -q 'PDF'
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            resume.pdf
       - name: Upload
         run: |
           # configure git
