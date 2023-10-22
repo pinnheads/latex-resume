@@ -45,8 +45,12 @@
 \newcommand{\datedsection}[2]{%
   \section[#1]{#1 \hfill #2}%
 }
-\newcommand{\datedsubsection}[2]{%
-  \subsection[#1]{#1 \hfill #2}%
+\newcommand{\datedsubsection}[4]{%
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{\large#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
 }
 \newcommand{\name}[1]{%
     \centerline{\Huge\textbf{#1}\vspace{8pt}}
@@ -69,7 +73,8 @@
 \newcommand{\linkedin}[1]{%
     \faIcon{linkedin} {\href{#1}{LinkedIn}}
 }
-
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\workitems}[3]{%
     \begin{itemize}
     \item #1
