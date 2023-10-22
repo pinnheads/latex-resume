@@ -1,15 +1,45 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{resume}[2023/10/22 Custom resume class]
-\LoadClass[letterpaper,11pt]{article}
+\LoadClass{article}
 
 % Required Packages
 \RequirePackage{titlesec}
+\RequirePackage{fancyhdr}
+\RequirePackage{geometry}
+\RequirePackage[strict]{changepage}
+\RequirePackage[inline]{enumitem}
+\RequirePackage{fontawesome5}
+\RequirePackage[pdftex]{hyperref}
+\RequirePackage{ragged2e}
+
+\pagestyle{fancy}
+% clear all header and footer fields
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+% List formatting
+\setlist{noitemsep,partopsep=0pt,leftmargin=2em}
+% Ref: https://tex.stackexchange.com/q/476883/16996
+\setlist[1]{before={\leavevmode\vspace*{-\baselineskip}\vspace*{-\parskip}}}
+\geometry{
+  letterpaper,
+  top=1.5cm,
+  bottom=1.5cm,
+  left=2cm,
+  right=2cm,
+  heightrounded,
+%   showframe
+}
 
 % Modify section headers
-\titleformat{\section}{\Large\scshape\sffamily\raggedright\bfseries}{}{0em}{}[\titlerule]
+\titleformat{\section}{\Large\scshape\sffamily\raggedright\vspace*{-5pt}}{}{0em}{}[\titlerule]
 
 % Modify subsection headers
-\titleformat{\subsection}{\Large\scshape\raggedright}{}{0em}{}
+\titleformat{\subsection}{\Large\scshape\raggedright\bf}{}{0em}{}
 
 % New custom commands
 \newcommand{\datedsection}[2]{%
@@ -19,26 +49,45 @@
   \subsection[#1]{#1 \hfill #2}%
 }
 \newcommand{\name}[1]{%
-    \centerline{\Huge{#1}}
+    \centerline{\Huge\textbf{#1}\vspace{8pt}}
 }
-\newcommand\contact[5]{%
-    \centerline{%
-        \makebox[0pt][c]{%
-            #1 {\large\textperiodcentered} #2 {\large\textperiodcentered} #3
-            \ #4 \ \ #5%
-        }%
-    }%
+\newcommand{\address}[1]{%
+    \faIcon{map-marker} \textbf{Location:} {#1}
 }
-\newcommand{\longcontact}[5]{%
-    \noindent
-    #1\hfill {\large\textperiodcentered}\hfill #2\hfill
-    {\large\textperiodcentered}\hfill #3\\
-    #4\hfill #5%
+\newcommand{\phone}[1]{%
+    \faIcon{phone-alt} \textbf{Mobile:} {#1}
 }
+\newcommand{\email}[1]{%
+    \faIcon{at} \textbf{Email:} {\href{mailto:#1}{#1}}
+}
+\newcommand{\github}[1]{%
+    \faIcon{github} {\href{#1}{Gtihub}}
+}
+\newcommand{\website}[1]{%
+    \faIcon{globe} {\href{#1}{Website}}
+}
+\newcommand{\linkedin}[1]{%
+    \faIcon{linkedin} {\href{#1}{LinkedIn}}
+}
+
 \newcommand{\workitems}[3]{%
     \begin{itemize}
     \item #1
     \item #2
     \item #3
     \end{itemize}%
+}
+
+\newenvironment{summary}{%
+  \section{Summary}
+  \begin{adjustwidth}{\dimexpr\Gm@rmargin-\Gm@lmargin\relax}{}
+  \justify
+}{%
+  \end{adjustwidth}
+}
+
+\newenvironment{contactinfo}{%
+  \begin{tabular*}{\columnwidth}{l@{\extracolsep{\fill}}r}
+}{
+  \end{tabular*}
 }
