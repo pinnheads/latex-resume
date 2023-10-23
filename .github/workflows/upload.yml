@@ -1,0 +1,53 @@
+name: Build and Upload LaTeX document
+on: 
+  pull_request:
+    types: 
+        - closed
+    branches:
+        - 'main'
+    paths:
+        - '**.cls'
+        - '**.tex'
+jobs:
+  upload_pdf:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+      - name: Verify PDF File
+        run: |
+          ls
+          file resume.pdf | grep -q 'PDF'
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: latest
+          files: |
+            resume.pdf
+      - name: Upload
+        run: |
+          # configure git
+          git config --global user.name "Utsav Deep"
+          git config --global user.email "utsavdeep01@gmail.com"
+
+          # setup ssh
+          mkdir ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$DEPLOY_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+
+          git clone --depth=1 git@github.com:pinnheads/Personal-Portfolio-2.0.git "$GITHUB_WORKSPACE/website"
+          cd "$GITHUB_WORKSPACE/website"
+          git checkout -b resume
+          cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/public/resume.pdf"
+          git add public/resume.pdf
+          git commit -m "[github actions] updated resume"
+          git push -u origin resume
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
