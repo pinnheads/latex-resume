@@ -50,49 +50,56 @@
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textbf{\large#1} & #2 \\
       \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
+    \end{tabular*}\vspace{-1pt}
 }
+
+\newcommand{\contactsection}[6]{%
+  \vspace{-5pt}
+    \begin{center}
+      {#1} $|$ {#2} $|$ {#3} \\
+      \vspace{5pt}{{#4} $|$ {#5} $|$ {#6}}
+    \end{center}
+}
+
+% Contact related commands
 \newcommand{\name}[1]{%
     \centerline{\Huge\textbf{#1}\vspace{8pt}}
 }
 \newcommand{\address}[1]{%
-    \faIcon{map-marker} \textbf{Location:} {#1}
+    \faIcon{map-marker} \texttt{#1}
 }
 \newcommand{\phone}[1]{%
-    \faIcon{phone-alt} \textbf{Mobile:} {#1}
+    \faIcon{phone-alt} \texttt{#1}
 }
 \newcommand{\email}[1]{%
-    \faIcon{at} \textbf{Email:} {\href{mailto:#1}{#1}}
+    \faIcon{at} \texttt{\href{mailto:#1}{#1}}
 }
 \newcommand{\github}[1]{%
-    \faIcon{github} {\href{#1}{Gtihub}}
+    \faIcon{github} \texttt{\href{#1}{Gtihub}}
 }
 \newcommand{\website}[1]{%
-    \faIcon{globe} {\href{#1}{Website}}
+    \faIcon{globe} \texttt{\href{#1}{Portfolio Website}}
 }
 \newcommand{\linkedin}[1]{%
-    \faIcon{linkedin} {\href{#1}{LinkedIn}}
-}
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\workitems}[3]{%
-    \begin{itemize}
-    \item #1
-    \item #2
-    \item #3
-    \end{itemize}%
+    \faIcon{linkedin} \texttt{\href{#1}{LinkedIn}}
 }
 
+% Commands for bullet points
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItem}[1]{
+  \item{
+    \small{#1 \vspace{2pt}}
+  }
+}
+
+% Command to create a list of items
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
 \newenvironment{summary}{%
-  \section{Summary}
   \begin{adjustwidth}{\dimexpr\Gm@rmargin-\Gm@lmargin\relax}{}
   \justify
 }{%
   \end{adjustwidth}
-}
-
-\newenvironment{contactinfo}{%
-  \begin{tabular*}{\columnwidth}{l@{\extracolsep{\fill}}r}
-}{
-  \end{tabular*}
 }
