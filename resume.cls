@@ -9,7 +9,7 @@
 \RequirePackage[strict]{changepage}
 \RequirePackage[inline]{enumitem}
 \RequirePackage{fontawesome5}
-\RequirePackage[pdftex]{hyperref}
+\RequirePackage[hidelinks]{hyperref}
 \RequirePackage{ragged2e}
 
 \pagestyle{fancy}
@@ -36,7 +36,7 @@
 }
 
 % Modify section headers
-\titleformat{\section}{\Large\scshape\sffamily\raggedright\vspace*{-5pt}}{}{0em}{}[\titlerule]
+\titleformat{\section}{\Large\scshape\sffamily\raggedright\vspace*{-2pt}}{}{0em}{}[\titlerule]
 
 % Modify subsection headers
 \titleformat{\subsection}{\Large\scshape\raggedright\bf}{}{0em}{}
@@ -49,7 +49,7 @@
   \vspace{-1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textbf{\large#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
+      \texttt{#3} & \textit{\small #4} \\
     \end{tabular*}\vspace{-1pt}
 }
 
@@ -88,8 +88,8 @@
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItem}[1]{
-  \item{
-    \small{#1 \vspace{2pt}}
+  \item\small{
+    {#1 \vspace{2pt}}
   }
 }
 
