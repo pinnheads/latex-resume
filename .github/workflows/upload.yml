@@ -30,6 +30,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.date.outputs.date }}
+          body: Latest revision of Utsav's Resume
           files: |
             resume.pdf
       - name: Upload
