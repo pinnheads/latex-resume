@@ -75,7 +75,7 @@
     \faIcon{at} \texttt{\href{mailto:#1}{#1}}
 }
 \newcommand{\github}[1]{%
-    \faIcon{github} \texttt{\href{#1}{Gtihub}}
+    \faIcon{github} \texttt{\href{#1}{Github}}
 }
 \newcommand{\website}[1]{%
     \faIcon{globe} \texttt{\href{#1}{Portfolio Website}}
