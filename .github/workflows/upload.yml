@@ -53,6 +53,7 @@ jobs:
           cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/public/resume.pdf"
           cp -f "$GITHUB_WORKSPACE/resume.json" "$GITHUB_WORKSPACE/website/public/resume.json"
           git add public/resume.pdf
+          git add public/resume.json
           git commit -m "[github actions] updated resume"
           git push -u origin resume
         env:
