@@ -8,6 +8,7 @@ on:
     paths:
         - '**.cls'
         - '**.tex'
+        - '**.json'
 jobs:
   upload_pdf:
     if: github.event.pull_request.merged == true
@@ -50,6 +51,7 @@ jobs:
           cd "$GITHUB_WORKSPACE/website"
           git checkout -b resume
           cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/public/resume.pdf"
+          cp -f "$GITHUB_WORKSPACE/resume.json" "$GITHUB_WORKSPACE/website/public/resume.json"
           git add public/resume.pdf
           git commit -m "[github actions] updated resume"
           git push -u origin resume
