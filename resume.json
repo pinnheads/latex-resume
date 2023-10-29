@@ -192,14 +192,13 @@
     ],
     "projects": [
         {
-            "name": "Project",
-            "startDate": "2019-01-01",
-            "endDate": "2021-01-01",
-            "description": "Description...",
+            "name": "Personal-Portfolio-2.0",
+            "startDate": "",
+            "endDate": "",
+            "description": "My personal Portfolio website built with Astro, Tailwind and Netlify ",
             "highlights": [
-                "Won award at AIHacks 2016"
             ],
-            "url": "https://project.com/"
+            "url": "https://github.com/pinnheads/Personal-Portfolio-2.0"
         }
     ]
 }
