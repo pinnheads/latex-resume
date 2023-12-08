@@ -36,7 +36,7 @@
 }
 
 % Modify section headers
-\titleformat{\section}{\Large\scshape\sffamily\raggedright\vspace*{-3pt}}{}{0em}{}[\titlerule]
+\titleformat{\section}{\Large\scshape\sffamily\raggedright\vspace*{-6pt}}{}{0em}{}[\titlerule]
 
 % Modify subsection headers
 \titleformat{\subsection}{\Large\scshape\raggedright\bf}{}{0em}{}
@@ -48,7 +48,7 @@
 \newcommand{\datedsubsection}[4]{%
   \vspace{1pt}\item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{\large#1} & #2 \\
+      \textbf{\normalsize#1} & #2 \\
       \texttt{#3} & \textit{\small #4} \\
     \end{tabular*}\vspace{0pt}
 }
