@@ -47,13 +47,13 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
-          git clone --depth=1 git@github.com:pinnheads/Personal-Portfolio-2.0.git "$GITHUB_WORKSPACE/website"
+          git clone --depth=1 git@github.com:pinnheads/personal-website.git "$GITHUB_WORKSPACE/website"
           cd "$GITHUB_WORKSPACE/website"
           git checkout -b resume
-          cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/public/resume.pdf"
-          cp -f "$GITHUB_WORKSPACE/resume.json" "$GITHUB_WORKSPACE/website/public/resume.json"
-          git add public/resume.pdf
-          git add public/resume.json
+          cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/src/assets/resume.pdf"
+          cp -f "$GITHUB_WORKSPACE/resume.json" "$GITHUB_WORKSPACE/website/src/assets/resume.json"
+          git add src/assets/resume.pdf
+          git add src/assets/resume.json
           git commit -m "[github actions] updated resume"
           git push -u origin resume
         env:
