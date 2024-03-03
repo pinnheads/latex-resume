@@ -6,7 +6,7 @@ on:
     branches:
         - 'main'
     paths:
-        - 'assets/*'
+        - 'assets/'
         - '**.cls'
         - '**.tex'
         - '**.json'
@@ -52,7 +52,7 @@ jobs:
           cd "$GITHUB_WORKSPACE/website"
           git checkout -b resume
           cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/src/assets/resume.pdf"
-          cp -f  "$GITHUB_WORKSPACE/assets/*" "$GITHUB_WORKSPACE/website/src/assets/"
+          cp -f  "$GITHUB_WORKSPACE/assets/" "$GITHUB_WORKSPACE/website/src/assets/"
           cp -f "$GITHUB_WORKSPACE/resume.json" "$GITHUB_WORKSPACE/website/src/assets/resume.json"
           git add src/assets/resume.pdf
           git add src/assets/resume.json
