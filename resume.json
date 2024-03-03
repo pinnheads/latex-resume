@@ -29,7 +29,13 @@
                 "network": "LinkedIn",
                 "username": "Utsav Deep",
                 "url": "https://www.linkedin.com/in/utsavdeep"
+            },
+            {
+                "network": "Email",
+                "username": "Utsav Deep",
+                "url": "mailto:mail@utsavdeep.com"
             }
+
         ]
     },
     "work": [
