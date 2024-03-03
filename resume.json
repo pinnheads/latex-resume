@@ -205,7 +205,7 @@
             "name": "Personal Portfolio Website",
             "image": "portfolio_preview.png",
             "isFeatured": true,
-            "description": "My personal portfolio website is a website built with Astro and Tailwind, and hosted on Cloudflare pages. It features seamless integration with other repositories for automatic resume updates, providing a dynamic showcase of my professional journey.",
+            "description": "My personal portfolio website is built with Astro and Tailwind, and hosted on Cloudflare pages. It features seamless integration with other repositories for automatic resume updates, providing a dynamic showcase of my professional journey.",
             "highlights": [
                 "Astro",
                 "Typescript",

@@ -52,10 +52,12 @@ jobs:
           cd "$GITHUB_WORKSPACE/website"
           git checkout -b resume
           cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/src/assets/resume.pdf"
-          cp -fr  "$GITHUB_WORKSPACE/assets/" "$GITHUB_WORKSPACE/website/src/assets/"
           cp -f "$GITHUB_WORKSPACE/resume.json" "$GITHUB_WORKSPACE/website/src/assets/resume.json"
+          cp -fr $GITHUB_WORKSPACE/assets/* "$GITHUB_WORKSPACE/website/src/assets/"
+          ls -a src/assets/
           git add src/assets/resume.pdf
           git add src/assets/resume.json
+          git status
           git commit -m "[github actions] updated resume"
           git push -u origin resume
         env:
