@@ -18,7 +18,7 @@
             {
                 "network": "Twitter",
                 "username": "utsavdeep01",
-                "url": "https://twitter.com/utsavdeep01"
+                "url": "https://x.com/utsavdeep01"
             },
             {
                 "network": "Github",
@@ -29,7 +29,13 @@
                 "network": "LinkedIn",
                 "username": "Utsav Deep",
                 "url": "https://www.linkedin.com/in/utsavdeep"
+            },
+            {
+                "network": "Email",
+                "username": "Utsav Deep",
+                "url": "mailto:mail@utsavdeep.com"
             }
+
         ]
     },
     "work": [
