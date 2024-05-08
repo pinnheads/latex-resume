@@ -53,9 +53,10 @@ jobs:
           git checkout -b resume
           cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/src/assets/resume.pdf"
           cp -f "$GITHUB_WORKSPACE/resume.json" "$GITHUB_WORKSPACE/website/src/assets/resume.json"
-          cp -fr $GITHUB_WORKSPACE/assets/* "$GITHUB_WORKSPACE/website/public/assets/"
+          cp -fr $GITHUB_WORKSPACE/assets/* "$GITHUB_WORKSPACE/website/public/"
+          cp -fr $GITHUB_WORKSPACE/assets/* "$GITHUB_WORKSPACE/website/src/assets/"
           git add src/assets/
-          git add public/assets/
+          git add public/
           git status
           git commit -m "[github actions] updated resume"
           git push -u origin resume
