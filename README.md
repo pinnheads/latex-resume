@@ -1,4 +1,5 @@
 [![Build and Upload LaTeX document](https://github.com/pinnheads/latex-resume/actions/workflows/upload.yml/badge.svg)](https://github.com/pinnheads/latex-resume/actions/workflows/upload.yml) [![Build and Verify LaTeX document](https://github.com/pinnheads/latex-resume/actions/workflows/latexToPdf.yml/badge.svg)](https://github.com/pinnheads/latex-resume/actions/workflows/latexToPdf.yml)
+
 # Latex Resume to PDF w/ Actions
 
 This repository contains the source code and the PDF file of my resume, which is written in LaTeX. LaTeX is a document preparation system that allows you to create professional-looking documents with high-quality typesetting.
@@ -11,7 +12,7 @@ This repository contains the source code and the PDF file of my resume, which is
 
 ## How to use
 
-- To use this repository, you need to have a LaTeX distribution installed on your system, such as [TeX Live](^1^) or [MiKTeX](^2^).
+- To see live previews in VS Code install [LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop) extension. See the [wiki](https://github.com/James-Yu/LaTeX-Workshop/wiki/Install) for the requirements to install the extension.
 - You can clone this repository using the following command:
 
 ```bash
