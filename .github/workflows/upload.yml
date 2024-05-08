@@ -52,6 +52,7 @@ jobs:
           cd "$GITHUB_WORKSPACE/website"
           git checkout -b resume
           cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/src/assets/resume.pdf"
+          cp -f "$GITHUB_WORKSPACE/resume.pdf" "$GITHUB_WORKSPACE/website/public/resume.pdf"
           cp -f "$GITHUB_WORKSPACE/resume.json" "$GITHUB_WORKSPACE/website/src/assets/resume.json"
           cp -fr $GITHUB_WORKSPACE/assets/* "$GITHUB_WORKSPACE/website/public/"
           cp -fr $GITHUB_WORKSPACE/assets/* "$GITHUB_WORKSPACE/website/src/assets/"
